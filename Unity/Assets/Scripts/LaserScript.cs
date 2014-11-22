@@ -16,4 +16,9 @@ public class LaserScript : MonoBehaviour {
 			Destroy(this.gameObject);
 		}
 	}
+	void OnTriggerEnter(Collider other) {
+		if(other.name.Contains("Asteroid")){
+			Destroy(this.gameObject);
+		}
+	}
 }
