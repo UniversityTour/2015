@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\MainMenuGUI.cs" />
+     <Compile Include="Assets\Pong\BallSpawner.cs" />
+     <Compile Include="Assets\Pong\PlayerPaddle.cs" />
+     <Compile Include="Assets\Pong\Puck.cs" />
      <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
