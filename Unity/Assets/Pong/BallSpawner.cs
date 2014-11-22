@@ -17,6 +17,7 @@ public class BallSpawner : MonoBehaviour {
 		if(Input.GetKeyDown ("z"))
 		{
 			Instantiate(PuckPrefab,new Vector3(0,0,0),Quaternion.identity);
+			ActiveBalls++;
 		}
 		
 		if(ActiveBalls <= 0)
@@ -30,5 +31,9 @@ public class BallSpawner : MonoBehaviour {
 	public void OnBallDeath()
 	{
 		ActiveBalls--;
+		if(ActiveBalls <=1)
+		{
+			GameObject.Find ("Enemy").GetComponent<EnemyPaddle>().ResetToStart();
+		}
 	}
 }

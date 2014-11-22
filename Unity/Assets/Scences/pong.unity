@@ -85,8 +85,9 @@ GameObject:
   - 33: {fileID: 26267414}
   - 65: {fileID: 26267413}
   - 23: {fileID: 26267412}
+  - 114: {fileID: 26267416}
   m_Layer: 0
-  m_Name: Paddle2
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,10 +140,23 @@ Transform:
   m_GameObject: {fileID: 26267411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 10.7624884, y: 1, z: 1}
+  m_LocalScale: {x: 3.90140176, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &26267416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26267411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70886f01161292d4e958d8a2309659e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tolerance: 1
+  speed: 5
 --- !u!1 &103509708
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +238,7 @@ GameObject:
   - 92: {fileID: 232478981}
   - 124: {fileID: 232478980}
   - 81: {fileID: 232478979}
+  - 114: {fileID: 232478984}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -296,6 +311,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &232478984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 232478978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c70eb0e35e07440a2adb9b07a5edb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &292949889
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +490,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b9bb1ecf82d8f8e4e87b72c14387ee49, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -517,7 +543,7 @@ GameObject:
   - 23: {fileID: 1567326195}
   - 114: {fileID: 1567326199}
   m_Layer: 0
-  m_Name: Paddle1
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -570,7 +596,7 @@ Transform:
   m_GameObject: {fileID: 1567326194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -4, z: 0}
-  m_LocalScale: {x: 10.7624884, y: 1, z: 1}
+  m_LocalScale: {x: 3.90140176, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
