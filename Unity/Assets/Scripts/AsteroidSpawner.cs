@@ -9,32 +9,15 @@ public class AsteroidSpawner : MonoBehaviour {
 	public float spawnValue = 1f;
 	public float maxAsteroidSpeed = 3f;
 	// Use this for initialization
-	private List<GameObject> liveAsteroids;
 	private float timePassed = 0.0f;
 
 	void Start () {
-		liveAsteroids = new List<GameObject>();
 		UnityEngine.Random.seed = (int)(new DateTime()).Ticks; 
 	}
-	// Update is called once per frame
+
 	void Update () {
 		timePassed += Time.deltaTime;
-		checkBoundaries();
 		spawnAsteroids();
-	}
-
-	void checkBoundaries(){
-		List<int> indexes = new List<int>();
-		for(int i = 0; i < liveAsteroids.Count; i++){
-			if(liveAsteroids[i].transform.position.y < -8){
-				indexes.Add(i);
-			}
-		}
-		foreach(var index in indexes){
-			GameObject del = liveAsteroids[index];
-			liveAsteroids.RemoveAt(index);
-			Destroy(del);
-		}
 	}
 
 	// Range [-8.25,8.25]
@@ -48,7 +31,6 @@ public class AsteroidSpawner : MonoBehaviour {
 			pos.x = xPos > 8.25f ? -(xPos - 8.25f) : xPos;
 			pos.z = -5f;
 			newAsteroid.transform.position = pos;
-			liveAsteroids.Add(newAsteroid);
 			timePassed = 0f;
 		}
 	}
