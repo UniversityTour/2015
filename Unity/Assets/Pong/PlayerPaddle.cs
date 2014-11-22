@@ -4,13 +4,22 @@ using System.Collections;
 public class PlayerPaddle : MonoBehaviour {
 
 	public float PaddleSpeed = 5.0f;
+	
+	Settings Einstellungen;
 	// Use this for initialization
 	void Start () {
+	
+		Einstellungen = GameObject.Find ("Settings").GetComponent<Settings>();
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+	
+		if(Einstellungen.GamePaused)
+		{
+			return;
+		}
 	
 		if(Input.GetKey("a"))
 		{

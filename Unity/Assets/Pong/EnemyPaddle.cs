@@ -10,11 +10,14 @@ public class EnemyPaddle : MonoBehaviour {
 	
 	private Vector3 StartPos;
 	
+	Settings Einstellungen;
+	
 	// Use this for initialization
 	void Start () {
 	
 		Ball = GameObject.Find ("Puck");
 		StartPos = this.transform.position;
+		Einstellungen = GameObject.Find ("Settings").GetComponent<Settings>();
 		
 	}
 	
@@ -26,9 +29,8 @@ public class EnemyPaddle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if(Ball!=null)
+		if(Ball!=null && Einstellungen.GamePaused==false)
 		{
-			Debug.Log (transform.position-Ball.transform.position);
 			
 			if(transform.position.x < (Ball.transform.position.x))
 			{
