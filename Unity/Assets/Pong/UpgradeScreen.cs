@@ -43,16 +43,15 @@ public class UpgradeScreen : MonoBehaviour {
 			GUILayout.BeginHorizontal();
 			if(GUILayout.Button (Options[i]))
 			{
-				TellChangesToSettings(Options[i]);
+				TellChangesToSettings(Options[i],Price[i]);
 			}
 			GUILayout.Label ("Price "+Price[i]+" "+Desc[i]);
 			GUILayout.EndHorizontal();
 		}
 		
 		GUILayout.Space(Screen.height/20);
-		if(GUILayout.Button ("Nope"))
+		if(GUILayout.Button ("Fertig"))
 		{
-			Debug.Log ("Settings to NOPE");
 			Einstellungen.StoreOpen = false;
 		}
 		
@@ -62,8 +61,8 @@ public class UpgradeScreen : MonoBehaviour {
 		}
 	}
 	
-	void TellChangesToSettings(string Name)
+	void TellChangesToSettings(string Name, int Price)
 	{
-		GameObject.Find ("Settings").GetComponent<Settings>().OnBoughtItem(Name);
+		GameObject.Find ("Settings").GetComponent<Settings>().OnBoughtItem(Name,Price);
 	}
 }

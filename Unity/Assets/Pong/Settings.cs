@@ -18,10 +18,19 @@ public class Settings : MonoBehaviour {
 	public bool Cage = false;
 	
 	public Material CageTex;
+	
+	FinalTalk EndDialogue;
+	Animator Jet;
+	
 
 	// Use this for initialization
 	void Start () {
 	
+		EndDialogue = Camera.main.GetComponent<FinalTalk>();
+		EndDialogue.enabled = false;
+		Jet = GameObject.Find ("omega_fighter").GetComponent<Animator>();
+		Jet.enabled = false;
+
 	}
 	
 	// Update is called once per frame
@@ -44,8 +53,17 @@ public class Settings : MonoBehaviour {
 	
 	}
 	
-	public void OnBoughtItem ( string item )
+	public void OnBoughtItem ( string item , int Price)
 	{
+		if(Dollarz >= Price)
+		{
+			Dollarz -= Price;
+		}
+		if(Dollarz < Price)
+		{
+			return;
+		}
+	
 		if(item == "Farb-DLC")
 		{
 			Debug.Log ("You bought a ColorDLC");
@@ -89,5 +107,11 @@ public class Settings : MonoBehaviour {
 	public void EndPhase()
 	{
 		GamePaused = true;
+		EndDialogue.enabled = true;
+	}
+	
+	public void StartJet()
+	{
+	 	Jet.enabled = true;
 	}
 }
