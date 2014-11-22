@@ -18,9 +18,15 @@ public class Settings : MonoBehaviour {
 	public bool Cage = false;
 	
 	public Material CageTex;
+	
+	FinalTalk EndDialogue;
+	
 
 	// Use this for initialization
 	void Start () {
+	
+		EndDialogue = Camera.main.GetComponent<FinalTalk>();
+		EndDialogue.enabled = false;
 	
 	}
 	
@@ -44,8 +50,17 @@ public class Settings : MonoBehaviour {
 	
 	}
 	
-	public void OnBoughtItem ( string item )
+	public void OnBoughtItem ( string item , int Price)
 	{
+		if(Dollarz >= Price)
+		{
+			Dollarz -= Price;
+		}
+		if(Dollarz < Price)
+		{
+			return;
+		}
+	
 		if(item == "Farb-DLC")
 		{
 			Debug.Log ("You bought a ColorDLC");
@@ -89,5 +104,6 @@ public class Settings : MonoBehaviour {
 	public void EndPhase()
 	{
 		GamePaused = true;
+		EndDialogue.enabled = true;
 	}
 }

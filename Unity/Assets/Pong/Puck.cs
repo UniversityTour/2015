@@ -10,6 +10,8 @@ public class Puck : MonoBehaviour {
 	
 	TrailRenderer RainbowTrail;
 	
+	int hitcounter = 0;
+	
 	//public GameObject PuckPrefab;
 
 	// Use this for initialization
@@ -20,13 +22,16 @@ public class Puck : MonoBehaviour {
 	
 		Einstellungen = GameObject.Find ("Settings").GetComponent<Settings>();
 		//this.direction = new Vector3(1.0f, 1.0f).normalized;
-		this.speed = 0.0f;
+		//this.speed = 0.0f;
 		//this.rigidbody.velocity = new Vector3(0,1,0);
 		
 		if(Einstellungen.Cage == true)
 		{
 			ActivateCage();
 		}
+		
+		this.direction = new Vector3(1.0f,1.0f).normalized;
+		this.speed = 0.1f;
 	
 	}
 	
@@ -38,12 +43,7 @@ public class Puck : MonoBehaviour {
 			this.transform.position += direction * speed;
 		}
 
-		
-		if(Input.GetKeyDown ("space"))
-		{
-			this.direction = new Vector3(1.0f,1.0f).normalized;
-			this.speed = 0.1f;
-		}
+
 		
 		if(Einstellungen.RainbowTrails == true)
 		{
@@ -59,6 +59,7 @@ public class Puck : MonoBehaviour {
 	
 	void OnCollisionEnter (Collision col)
 	{
+		hitcounter ++;
 		//Debug.Log ("Collision with "+col.gameObject.name);
 		Vector3 normal = col.contacts[0].normal;
 		direction = Vector3.Reflect(direction, normal);
@@ -68,7 +69,7 @@ public class Puck : MonoBehaviour {
 		{
 			if(col.gameObject.name.Contains("Gegner"))
 			{
-				GrantPlayerPoints(10.0f);
+				GrantPlayerPoints(10.0f* hitcounter * Time.time);
 			}
 			Destroy (this.gameObject);
 			GameObject.Find ("Spawner").GetComponent<BallSpawner>().OnBallDeath();
