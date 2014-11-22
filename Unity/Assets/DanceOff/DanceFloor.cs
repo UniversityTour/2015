@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DanceFloor : MonoBehaviour {
 
@@ -8,24 +9,36 @@ public class DanceFloor : MonoBehaviour {
 	public bool ShowRunning = false;
 	
 	private float counter = 0.0f;
-	private float NextNodeTime;
+	public int OrderCount = 100;
+	
+	private int LastOrder=0;
+	
+	public List<int> DanceOrders;
+	
+	public int ActiveNode;
 
 	// Use this for initialization
 	void Start () {
+	
+		DanceOrders = new List<int>();
+		GenerateStepOrders();
+		Debug.Log (DanceOrders.Count);
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
-		if(Input.GetKeyDown ("w"))
+		if(Input.GetKeyDown("w"))
 		{
-			Debug.Log ("Show Running");
 			ShowRunning = true;
-			//GenerateStepOrders();
+			StartCoroutine(SendDanceOrders());
+			audio.Play();
 		}
 	
+	
 	}
+	
 	
 	public void ChooseDanceFloor (int key)
 	{
@@ -80,24 +93,45 @@ public class DanceFloor : MonoBehaviour {
 	
 	public void GenerateStepOrders()
 	{
-		while(ShowRunning)
-		{
-			counter += Time.deltaTime;
-			if(NextNodeTime == 0)
+
+			for ( int i = 0; i < OrderCount; i++ )
 			{
-				NextNodeTime = Random.Range(0.5f,1.5f);
+				DanceOrders.Add ((int)Random.Range (0,3));
 			}
-			else
+		
+	}
+	
+	public void TapButton(int Key)
+	{
+		if(Key == ActiveNode)
+		{
+			Debug.Log ("Correct "+Time.time);
+		}
+	}
+	
+	IEnumerator SendDanceOrders()
+	{
+		for(int i = 0; i < DanceOrders.Count; i++)
+		{
+			int NewOrder = DanceOrders[i];
+			if(NewOrder == LastOrder)
 			{
-				if(counter >= NextNodeTime)
+				if(NewOrder>0)
 				{
-					counter = 0;
-					NextNodeTime = 0;
-					
-					int Node = (int)Random.Range(0,3);
-					ChooseDanceFloor(Node);
+					NewOrder--;
+				}
+				else
+				{
+					NewOrder++;
 				}
 			}
+			ChooseDanceFloor(DanceOrders[i]);
+			LastOrder = NewOrder;
+			ActiveNode = LastOrder;
+			yield return new WaitForSeconds(1.0f);
+			ResetDanceFloors();
+			
 		}
+		DanceOrders.Clear();
 	}
 }
