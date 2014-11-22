@@ -8,6 +8,9 @@ public class SpaceshipScript : MonoBehaviour {
 	public GameObject explostion;
 	private int numLives = 3;
 
+	void Start(){
+		GameObject.Find("AsteroidSpawner").GetComponent<SpaceshipToggle>().Reposition();
+	}
 
 	void Update () {
  		if(Input.GetKey(KeyCode.RightArrow) && transform.position.x < 8)
