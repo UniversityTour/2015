@@ -12,8 +12,16 @@ public class SpaceshipToggle : MonoBehaviour {
 
 	public void Reposition()
 	{
-		StartCoroutine(DoBlinks(0.15f, 0.05f));
+		StartCoroutine(wait(0.5f));
 	}
+	
+	IEnumerator wait(float sec){
+		go.SetActive(false);
+		yield return new WaitForSeconds(sec);
+		go.SetActive(true);
+		yield return StartCoroutine(DoBlinks(0.15f, 0.05f));
+	}
+
 
     IEnumerator DoBlinks(float duration, float blinkTime) {
         Renderer[] rs = go.GetComponentsInChildren<Renderer>();

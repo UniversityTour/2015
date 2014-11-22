@@ -5,6 +5,7 @@ public class SpaceshipScript : MonoBehaviour {
 
 	public float speed = 5.0f;
 	public GameObject[] lasers;
+	public GameObject explostion;
 	private int numLives = 3;
 
 
@@ -32,5 +33,6 @@ public class SpaceshipScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		GameObject.Find("AsteroidSpawner").GetComponent<SpaceshipToggle>().Reposition();
+		Instantiate(explostion, transform.position, Quaternion.identity);
     }
 }
