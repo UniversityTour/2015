@@ -8,15 +8,25 @@ public class Puck : MonoBehaviour {
 	
 	Settings Einstellungen;
 	
+	TrailRenderer RainbowTrail;
+	
 	//public GameObject PuckPrefab;
 
 	// Use this for initialization
 	void Start () {
 	
+		RainbowTrail = this.GetComponent<TrailRenderer>();
+		RainbowTrail.enabled = false;
+	
 		Einstellungen = GameObject.Find ("Settings").GetComponent<Settings>();
 		//this.direction = new Vector3(1.0f, 1.0f).normalized;
 		this.speed = 0.0f;
 		//this.rigidbody.velocity = new Vector3(0,1,0);
+		
+		if(Einstellungen.Cage == true)
+		{
+			ActivateCage();
+		}
 	
 	}
 	
@@ -29,6 +39,16 @@ public class Puck : MonoBehaviour {
 		{
 			this.direction = new Vector3(1.0f,1.0f).normalized;
 			this.speed = 0.1f;
+		}
+		
+		if(Einstellungen.RainbowTrails == true)
+		{
+			EnableRainbow();
+		}
+		
+		if(Einstellungen.Cage==true)
+		{
+			this.renderer.material = Einstellungen.CageTex;
 		}
 	
 	}
@@ -55,6 +75,16 @@ public class Puck : MonoBehaviour {
 	void GrantPlayerPoints(float points)
 	{
 		Einstellungen.Dollarz += (long)points;
+	}
+	
+	void EnableRainbow()
+	{
+		RainbowTrail.enabled = true;
+	}
+	
+	void ActivateCage()
+	{
+		this.renderer.material = Einstellungen.CageTex;
 	}
 	
 }
