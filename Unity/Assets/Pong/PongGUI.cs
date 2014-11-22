@@ -17,17 +17,21 @@ public class PongGUI : MonoBehaviour {
 	void OnGUI()
 	{
 		Dollar = Einstellungen.Dollarz;
-	
-		if(IntroOver == false)
-		{
-			this.IntroOver = GameObject.Find ("Settings").GetComponent<Settings>().IntroOver;
-		}
 		
-		if(IntroOver)
+		if(Einstellungen.GamePlayOver==false)
 		{
-			GUILayout.BeginHorizontal();
-			GUILayout.Label ("Eskimo-Dollar: " + Dollar.ToString());
-			GUILayout.EndHorizontal();
+		
+			if(IntroOver == false)
+			{
+				this.IntroOver = GameObject.Find ("Settings").GetComponent<Settings>().IntroOver;
+			}
+			
+			if(IntroOver)
+			{
+				GUILayout.BeginHorizontal();
+				GUILayout.Label ("Eskimo-Dollar: " + Dollar.ToString());
+				GUILayout.EndHorizontal();
+			}
 		}
 		
 	}

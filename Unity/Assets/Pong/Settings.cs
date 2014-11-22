@@ -22,6 +22,8 @@ public class Settings : MonoBehaviour {
 	FinalTalk EndDialogue;
 	Animator Jet;
 	
+	public bool GamePlayOver = false;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +41,12 @@ public class Settings : MonoBehaviour {
 		if(Dollarz >= 20 && Input.GetKeyDown("w"))
 		{
 			StoreOpen = true;
+		}
+		
+		if(Input.GetKeyDown ("u"))
+		{
+			Camera.main.GetComponent<ÜbergangzuLevel2>().CreateTrennwand();
+			Camera.main.GetComponent<ÜbergangzuLevel2>().Active = true;
 		}
 		
 		if(StoreOpen)
