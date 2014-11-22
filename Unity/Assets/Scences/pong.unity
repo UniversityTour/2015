@@ -448,7 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IntroOver: 0
   StoreOpen: 0
-  PlayIntro: 1
+  PlayIntro: 0
   GamePaused: 0
   RainbowTrails: 0
   Cage: 0
@@ -721,8 +721,10 @@ MonoBehaviour:
   - /G Das hier ist das nicht wert!
   - /T Du denkst du legst mich so rein? Ich werde nicht gegen dich verlieren!
   - "/G Es HAGELT Meteore! Wir m\xFCssen hier verschwinden!"
-  - "/T Dann renn doch! Ich werde dir diesen Sieg nicht lassen! So wahr ich Theo der
-    B\xF6se bin!"
+  - "/T/J Dann renn doch! Ich werde dir diesen Sieg nicht lassen! So wahr ich Theo
+    der B\xF6se bin!"
+  - /G Er ist weg! Dann bleibt mir keine Wahl, ich muss alleine von hier fort!
+  - /W
   LeftStyle:
     m_Name: 
     m_Normal:
@@ -1306,7 +1308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &431392692
 Transform:
   m_ObjectHideFlags: 0
@@ -1601,7 +1603,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 56fb8554addb69843a8dc594c61198de, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 56fb8554addb69843a8dc594c61198de, type: 3}
@@ -2350,7 +2352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &2139302554
 Renderer:
   m_ObjectHideFlags: 0

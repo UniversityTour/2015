@@ -34,6 +34,7 @@ public class Asteroiden : MonoBehaviour {
 	
 	public void ActivateAnimation()
 	{
+		Debug.Log ("Animation started");
 		MyAnimator.enabled = true;
 	}
 	

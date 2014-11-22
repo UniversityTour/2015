@@ -20,6 +20,7 @@ public class Settings : MonoBehaviour {
 	public Material CageTex;
 	
 	FinalTalk EndDialogue;
+	Animator Jet;
 	
 
 	// Use this for initialization
@@ -27,7 +28,9 @@ public class Settings : MonoBehaviour {
 	
 		EndDialogue = Camera.main.GetComponent<FinalTalk>();
 		EndDialogue.enabled = false;
-	
+		Jet = GameObject.Find ("omega_fighter").GetComponent<Animator>();
+		Jet.enabled = false;
+
 	}
 	
 	// Update is called once per frame
@@ -105,5 +108,10 @@ public class Settings : MonoBehaviour {
 	{
 		GamePaused = true;
 		EndDialogue.enabled = true;
+	}
+	
+	public void StartJet()
+	{
+	 	Jet.enabled = true;
 	}
 }
