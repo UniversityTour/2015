@@ -15,8 +15,10 @@ public class PlayerMovement : MonoBehaviour
     private State state; //for animation
     private bool facingRight;
     private bool isGrounded;
+    private bool inFrontOfDoor=false;
+    private float maxLeftPos;
+    public Transform spawnPoint;
 
-        
 
     private enum State
     {
@@ -30,13 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "ground")
-        {
-            isGrounded = true;
-        }
-    }
+
 
     void Awake()
     {
@@ -60,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         animationHandling();
         if (isGrounded)
         {
-            Debug.Log("just grounded");
+            //Debug.Log("just grounded");
             anim.SetBool("isFalling", false);
             anim.SetBool("isGrounded", true);
         }
@@ -73,6 +69,10 @@ public class PlayerMovement : MonoBehaviour
         {
             facingRight = false; //for animation
             transform.position = new Vector2(transform.position.x - (walkSpeed * Time.deltaTime), transform.position.y);
+            if (transform.position.x < maxLeftPos - 3.0f)
+            {
+                transform.position = new Vector2(maxLeftPos - 3.0f, transform.position.y);
+            }
             if (isGrounded)
             {
                 state = State.Walking;
@@ -82,24 +82,35 @@ public class PlayerMovement : MonoBehaviour
         {
             facingRight = true; //for animation
             transform.position = new Vector2(transform.position.x + (walkSpeed * Time.deltaTime), transform.position.y);
+            maxLeftPos = transform.position.x;
             if (isGrounded)
             {
                 state = State.Walking;
             }
         }
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && (state!=State.Jumping))
         {
             isGrounded = false;
             state = State.Jumping;
-            
+
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpSpeed);
+        }
+        if (Input.GetKeyDown("w"))
+        {
+            Debug.Log("w pressed");
+            if (((DoorScript)GameObject.FindGameObjectWithTag("door").GetComponent<DoorScript>()).getTriggerStateDoor())
+            {
+                //level completed
+                //load new level
+                Debug.Log("Level completed! Yeeee!");
+            }
         }
     }
 
-   /* bool IsGrounded()
-    {
-        return (rigidbody.velocity.y == 0);
-    }*/
+    /* bool IsGrounded()
+     {
+         return (rigidbody.velocity.y == 0);
+     }*/
 
     void animationHandling()
     {
@@ -129,7 +140,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 anim.SetBool("isJumping", false);
                 anim.SetBool("isWalking", true);
-                if (rigidbody.velocity.x == 0.0f) {
+                if (rigidbody.velocity.x == 0.0f)
+                {
                     anim.SetBool("isWalking", false);
                 }
                 //change to walk animation
@@ -145,8 +157,28 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (state == State.Flying)
             {
-                //change to walk animation
+                //change to fly animation
             }
         }
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "fallgrube")
+        {
+            Debug.Log("TOOOOOT!!!");
+            transform.position = spawnPoint.position;
+            GameObject.FindGameObjectWithTag("MainCamera").transform.position = 
+                new Vector3(spawnPoint.position.x + 4.0f, spawnPoint.position.y + 2.0f, spawnPoint.position.z - 10.0f);
+
+        }
+        if (other.gameObject.tag == "ground")
+        {
+            isGrounded = true;
+        }
+
+        
+
+    }
+
 }
