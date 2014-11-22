@@ -16,6 +16,7 @@ public class FinalTalk : MonoBehaviour {
 	
 	private string Msg;
 	
+	
 	//Theo der Böse
 
 	// Use this for initialization
@@ -38,6 +39,7 @@ public class FinalTalk : MonoBehaviour {
 			}
 		}
 	
+	
 	}
 	
 	void OnGUI()
@@ -45,7 +47,19 @@ public class FinalTalk : MonoBehaviour {
 		GUI.Box(Dialogue,"");
 		GUILayout.BeginArea(Dialogue);
 		GUILayout.BeginHorizontal();
-		
+			if(Msg.Contains("/J"))
+			{
+				Msg = Msg.Replace("/J","");
+				GameObject.Find ("Settings").GetComponent<Settings>().StartJet();
+				Destroy(GameObject.Find ("Enemy"));
+			}
+			
+			if(Msg.Contains("/W"))
+			{
+				Camera.main.GetComponent<ÜbergangzuLevel2>().CreateTrennwand();
+				this.gameObject.GetComponent<ÜbergangzuLevel2>().Active = true;
+			}
+			
 			if(Msg.Contains("/G"))
 			{
 				GUILayout.Box (Gunnar,LeftStyle);
