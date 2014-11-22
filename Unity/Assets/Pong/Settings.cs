@@ -85,4 +85,9 @@ public class Settings : MonoBehaviour {
 			Destroy (AllNeons[i]);
 		}
 	}
+	
+	public void EndPhase()
+	{
+		GamePaused = true;
+	}
 }

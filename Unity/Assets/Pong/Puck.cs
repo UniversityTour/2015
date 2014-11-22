@@ -33,7 +33,11 @@ public class Puck : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		this.transform.position += direction * speed;
+		if(Einstellungen.GamePaused == false)
+		{
+			this.transform.position += direction * speed;
+		}
+
 		
 		if(Input.GetKeyDown ("space"))
 		{

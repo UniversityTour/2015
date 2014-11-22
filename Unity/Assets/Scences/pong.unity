@@ -550,6 +550,7 @@ GameObject:
   - 114: {fileID: 232478984}
   - 82: {fileID: 232478985}
   - 114: {fileID: 232478986}
+  - 114: {fileID: 232478987}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -703,6 +704,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BattleMusic: {fileID: 8300000, guid: 4675928d00a99d74e84480d8db7fad80, type: 3}
+--- !u!114 &232478987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 232478978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe410499241e594690f78f45fda5f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Talks: []
+  Gunnar: {fileID: 0}
+  Theo: {fileID: 0}
 --- !u!1 &246125358
 GameObject:
   m_ObjectHideFlags: 0
