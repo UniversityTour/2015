@@ -741,11 +741,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Asteroids:
-  - {fileID: 100000, guid: d484f772f5af8714b8a8184be4c3fff1, type: 2}
-  - {fileID: 100000, guid: 67616e6eab1db8445b27c9f8e836705c, type: 2}
-  - {fileID: 100000, guid: 9ad57139d29c8094a80c10bc9124eb6f, type: 2}
-  - {fileID: 100000, guid: 33bd859cc60595b4b8fe5e0d917bc7f5, type: 2}
-  - {fileID: 100000, guid: a9ebaf659315c5446a3f21625a0afac6, type: 2}
+  - {fileID: 100000, guid: 7d5f7699d6d1d48e485ac71126e12061, type: 2}
+  - {fileID: 100002, guid: 9143e2b62ad50488482f9b73672fc331, type: 2}
+  - {fileID: 100002, guid: 834bfaee90a9d4e04b1e8c1ca22cc88e, type: 2}
   spawnValue: 8
   maxAsteroidSpeed: 7
 --- !u!114 &580065628
@@ -759,6 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701c8cd2bf5574c4abb221b6f6b02627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 1.5
 --- !u!1 &674425423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,7 +1062,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 56fb8554addb69843a8dc594c61198de, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 56fb8554addb69843a8dc594c61198de, type: 3}
       propertyPath: m_IsActive
@@ -1516,7 +1515,7 @@ Animator:
     type: 3}
   m_PrefabInternal: {fileID: 1103686790}
   m_GameObject: {fileID: 1748749249}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 56fb8554addb69843a8dc594c61198de, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
