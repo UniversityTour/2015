@@ -2735,6 +2735,60 @@ Prefab:
   m_RootGameObject: {fileID: 1748749249}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1321091896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1321091898}
+  - 114: {fileID: 1321091897}
+  m_Layer: 0
+  m_Name: GUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1321091897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1321091896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29cf5e624ba82c47b7663497dd52bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 2800000, guid: a6ff5e9662223624284f970b1494759a, type: 3}
+  textures:
+  - {fileID: 2800000, guid: 36a0cd8afa2e72a49869ed4340c040ad, type: 3}
+  - {fileID: 2800000, guid: c0f20210b0b97a1449486a8e64a9f1a9, type: 3}
+  - {fileID: 2800000, guid: 0911236ed2a67f74d892bdebda5cd8d5, type: 3}
+  - {fileID: 2800000, guid: 6b246deee8db68241a7435e94dba9778, type: 3}
+  - {fileID: 2800000, guid: 0cea74dcfc08c854d98dca673f7ebf99, type: 3}
+  texts:
+  - TO THE CHOPPA!!
+  - Do a barrel role
+  - I'm a f*cking chair
+  - Falcon punch!
+  - Say hello to my little friend!
+  spawnTimer: 2
+  displayTime: 5
+--- !u!4 &1321091898
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1321091896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10.0920858, z: -5.90060329}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &1325358463
 GameObject:
   m_ObjectHideFlags: 0

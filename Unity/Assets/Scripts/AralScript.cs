@@ -16,7 +16,6 @@ public class AralScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(flag);
 		spawnFrequency -= Time.deltaTime;
 		if(spawnFrequency < 0f)
 		{
