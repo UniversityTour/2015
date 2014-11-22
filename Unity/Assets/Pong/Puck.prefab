@@ -28,6 +28,7 @@ GameObject:
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400000}
   - 54: {fileID: 5400000}
+  - 96: {fileID: 9600000}
   m_Layer: 0
   m_Name: Puck
   m_TagString: Untagged
@@ -43,7 +44,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.82720482, y: 1.82720518, z: 1.82720518}
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 0}
@@ -72,7 +73,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 205490f5caa1c964d8a81e1ca0abe5ae, type: 2}
+  - {fileID: 2100000, guid: a22cec7ec077c724ab6a5a5f76b656e3, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -102,6 +103,47 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 72
   m_CollisionDetection: 0
+--- !u!96 &9600000
+TrailRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: ceeda8221337f7d468045c90d808b0e4, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: 2
+  m_StartWidth: 1
+  m_EndWidth: .100000001
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16777215
+  m_MinVertexDistance: .100000001
+  m_Autodestruct: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
