@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 26c03bac8158ce94ca967bc5575fb25c
+guid: 0d9bac854c991274494541f774d774ac
 TextureImporter:
   fileIDToRecycleName:
     21300000: Pitfall1.xcf-Boden_0
@@ -12,6 +12,7 @@ TextureImporter:
     21300014: Pitfall1.xcf-Boden_7
     21300016: Pitfall1.xcf-Boden_8
     21300018: Pitfall1.xcf-Boden_9
+    21300020: Pitfall1.xcf-Boden_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -47,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -126,6 +127,16 @@ TextureImporter:
     - name: Pitfall1.xcf-Boden_7
       rect:
         serializedVersion: 2
+        x: 41
+        y: 21
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pitfall1.xcf-Boden_8
+      rect:
+        serializedVersion: 2
         x: 72
         y: 0
         width: 28
@@ -133,7 +144,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Pitfall1.xcf-Boden_8
+    - name: Pitfall1.xcf-Boden_9
       rect:
         serializedVersion: 2
         x: 0
@@ -143,7 +154,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Pitfall1.xcf-Boden_9
+    - name: Pitfall1.xcf-Boden_10
       rect:
         serializedVersion: 2
         x: 42
