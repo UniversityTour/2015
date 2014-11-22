@@ -3,20 +3,33 @@ using System.Collections;
 
 public class PongGUI : MonoBehaviour {
 	
+	private bool IntroOver = false;
 	
 	private long Dollar;
 	
-	void OnGUI()
+	Settings Einstellungen;
+	
+	void Start()
 	{
-		
-		GUILayout.BeginHorizontal();
-		GUILayout.Label ("Eskimo-Dollar: " + Dollar.ToString());
-		GUILayout.EndHorizontal();
-		
+		Einstellungen = GameObject.Find ("Settings").GetComponent<Settings>();
 	}
 	
-	public void ChangeDollars(float dol)
+	void OnGUI()
 	{
-		this.Dollar += (long)dol;
+		Dollar = Einstellungen.Dollarz;
+	
+		if(IntroOver == false)
+		{
+			this.IntroOver = GameObject.Find ("Settings").GetComponent<Settings>().IntroOver;
+		}
+		
+		if(IntroOver)
+		{
+			GUILayout.BeginHorizontal();
+			GUILayout.Label ("Eskimo-Dollar: " + Dollar.ToString());
+			GUILayout.EndHorizontal();
+		}
+		
 	}
+
 }
