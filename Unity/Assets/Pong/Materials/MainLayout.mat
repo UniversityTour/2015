@@ -17,12 +17,12 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
+          m_Texture: {fileID: 2800000, guid: 0351c1b5681027445b913ed0fe34a802, type: 3}
+          m_Scale: {x: 11, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: .0862745121, g: 0, b: 0, a: 1}
