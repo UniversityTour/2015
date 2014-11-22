@@ -18,7 +18,7 @@ public class AsteroidScript : MonoBehaviour {
     void checkBoundaries(){
 		if(transform.position.x < -10 || transform.position.x > 10)
 			Destroy(this.gameObject);
-		else if(transform.position.y > 10 || transform.position.y < -10){
+		else if(transform.position.y > 30 || transform.position.y < -10){
 			Destroy(this.gameObject);
 		}
 	}

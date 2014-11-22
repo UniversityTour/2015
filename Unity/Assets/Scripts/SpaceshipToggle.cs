@@ -9,10 +9,10 @@ public class SpaceshipToggle : MonoBehaviour {
 	void Start () {
         go = GameObject.Find ("Spaceship");
 	}
-	
+
 	public void Reposition()
 	{
-		StartCoroutine(DoBlinks(0.15f, 0.01f));
+		StartCoroutine(DoBlinks(0.15f, 0.05f));
 	}
 
     IEnumerator DoBlinks(float duration, float blinkTime) {

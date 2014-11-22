@@ -24,7 +24,7 @@ public class AsteroidSpawner : MonoBehaviour {
 	void spawnAsteroids(){
 		float probability = timePassed / UnityEngine.Random.value  ;
 		if(probability > spawnValue){
-			GameObject newAsteroid = Instantiate(Asteroids[(int)(UnityEngine.Random.value * 5)]) as GameObject;
+			GameObject newAsteroid = Instantiate(Asteroids[(int)(UnityEngine.Random.value * Asteroids.Length)]) as GameObject;
 			newAsteroid.GetComponent<AsteroidScript>().Speed = UnityEngine.Random.value * maxAsteroidSpeed;
 			float xPos = UnityEngine.Random.value * 16.5f;
 			Vector3 pos = newAsteroid.transform.position;
