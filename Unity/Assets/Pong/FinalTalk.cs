@@ -39,6 +39,7 @@ public class FinalTalk : MonoBehaviour {
 			}
 		}
 	
+	
 	}
 	
 	void OnGUI()
@@ -53,7 +54,12 @@ public class FinalTalk : MonoBehaviour {
 				Destroy(GameObject.Find ("Enemy"));
 			}
 			
-
+			if(Msg.Contains("/W"))
+			{
+				Camera.main.GetComponent<ÜbergangzuLevel2>().CreateTrennwand();
+				this.gameObject.GetComponent<ÜbergangzuLevel2>().Active = true;
+			}
+			
 			if(Msg.Contains("/G"))
 			{
 				GUILayout.Box (Gunnar,LeftStyle);

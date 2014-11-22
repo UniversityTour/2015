@@ -56,12 +56,15 @@ public class TextSequence : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		GUI.Box (new Rect(50,Screen.height/3,Screen.width/3,Screen.height/2),type,MyStyle);
-		if(Textfinished)
+		if(Einstellungen.GamePlayOver==false)
 		{
-			if(GUILayout.Button ("Weiter"))
+			GUI.Box (new Rect(50,Screen.height/3,Screen.width/3,Screen.height/2),type,MyStyle);
+			if(Textfinished)
 			{
-				OnVideoOver();
+				if(GUILayout.Button ("Weiter"))
+				{
+					OnVideoOver();
+				}
 			}
 		}
 	}
