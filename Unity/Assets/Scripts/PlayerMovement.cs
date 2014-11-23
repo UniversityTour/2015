@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private bool inFrontOfDoor=false;
     private float maxLeftPos;
     public Transform spawnPoint;
+    public AudioClip jumpSound;
+
 
     private int numLives = 5;
     private int points = 0;
@@ -43,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         state = State.Idle;
         facingRight = true;
         isGrounded = false;
+        //jumpSound = GameObject.Find("AudioJump");
     }
 
     // Update is called once per frame
@@ -92,8 +95,8 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = false;
             state = State.Jumping;
-
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpSpeed);
+            audio.Play();
         }
         // enter door
         if (Input.GetKeyDown("w"))
