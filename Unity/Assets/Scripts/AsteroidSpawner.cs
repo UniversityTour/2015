@@ -14,14 +14,16 @@ public class AsteroidSpawner : MonoBehaviour {
 	public int numAsteroids = 0;
 	public bool cows = false;
 	public bool satelittes = false;
+	public bool paused = false;
 	// Use this for initialization
 	private float timePassed = 0.0f;
-
 	void Start () {
 		UnityEngine.Random.seed = (int)(new DateTime()).Ticks; 
 	}
 
 	void Update () {
+		if(paused)
+			return;
 		timePassed += Time.deltaTime;
 		spawnAsteroids();
 	}
@@ -48,6 +50,7 @@ public class AsteroidSpawner : MonoBehaviour {
 
 				if(UnityEngine.Random.value > 0.9f){
 					astr = true;
+					
 					newAsteroid = Instantiate(Satelitte) as GameObject;
 					newAsteroid.GetComponent<AsteroidScript>().Speed = UnityEngine.Random.value * maxAsteroidSpeed;
 				}
