@@ -832,8 +832,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  MaxScore: 500
-  Trennwand: {fileID: 0}
+  MaxScore: 100
+  Trennwand: {fileID: 1201654075}
+  text: "Und so schaffte es Gunnar erneut dem sicheren Tod zu entgehen.\r\n\r\nNicht
+    nur war der Pilot so beeindruckt, dass er ihm das Steuer \xFCberlie\xDF.\r\nEr
+    hatte auch eine neue F\xE4higkeit an sich entdeckt.\r\n\r\nGunnar war nun bereit
+    f\xFCr seine letzte,gro\xDFe Etappe:\r\n\r\nDie interstellare Schnellstra\xDFe."
+  CharPassTime: .100000001
 --- !u!4 &1682849165
 Transform:
   m_ObjectHideFlags: 0

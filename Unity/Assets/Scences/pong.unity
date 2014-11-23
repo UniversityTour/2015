@@ -200,7 +200,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: db61264ea4d4fbe4292b429d7fe6be37, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db61264ea4d4fbe4292b429d7fe6be37, type: 2}
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IntroOver: 0
   StoreOpen: 0
-  PlayIntro: 1
+  PlayIntro: 0
   GamePaused: 0
   RainbowTrails: 0
   Cage: 0
@@ -650,7 +650,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.42416763
+  orthographic size: 8.99950123
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1481,7 +1481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &527466605
 Transform:
   m_ObjectHideFlags: 0
