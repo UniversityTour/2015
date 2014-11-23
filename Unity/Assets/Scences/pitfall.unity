@@ -2281,6 +2281,7 @@ MonoBehaviour:
   jumpSpeed: 7
   jumpHeight: 2
   canJump: 1
+  isDead: 0
   spawnPoint: {fileID: 1033074175}
 --- !u!54 &1236112738
 Rigidbody:

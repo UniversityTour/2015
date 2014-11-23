@@ -16,6 +16,7 @@ public class FinalTalk : MonoBehaviour {
 	
 	private string Msg;
 	
+	private TalkSound Talker;
 	
 	//Theo der Böse
 
@@ -24,6 +25,8 @@ public class FinalTalk : MonoBehaviour {
 	
 		Msg = Talks[0];
 		Talks.RemoveAt(0);
+		
+		Talker = GameObject.Find ("TalkSoundSource").GetComponent<TalkSound>();
 	
 	}
 	
@@ -64,11 +67,13 @@ public class FinalTalk : MonoBehaviour {
 			{
 				GUILayout.Box (Gunnar,LeftStyle);
 				GUILayout.Label (Msg.Replace("/G",""));
+				Talker.GunnarTalk();
 			}
 			if(Msg.Contains("/T"))
 			{
 				GUILayout.Box (Theo,RightStyle);
 				GUILayout.Label (Msg.Replace("/T",""));
+				Talker.TheoTalk();
 			}
 		GUILayout.EndHorizontal();
 		GUILayout.EndArea();
