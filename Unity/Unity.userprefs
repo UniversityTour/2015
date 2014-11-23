@@ -1,12 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DanceOff\PlayerScore.cs">
     <Files>
-      <File FileName="Assets\DanceOff\Talk.cs" Line="95" Column="24" />
-      <File FileName="Assets\DanceOff\DanceFloor.cs" Line="150" Column="33" />
-      <File FileName="Assets\DanceOff\PlayerInput.cs" Line="1" Column="1" />
-      <File FileName="Assets\Pong\WoWBubble.cs" Line="1" Column="1" />
-      <File FileName="Assets\DanceOff\PlayerScore.cs" Line="21" Column="2" />
+      <File FileName="Assets\DanceOff\PlayerInput.cs" Line="22" Column="4" />
+      <File FileName="Assets\DanceOff\DanceFloor.cs" Line="1" Column="1" />
+      <File FileName="Assets\DanceOff\Talk.cs" Line="88" Column="31" />
+      <File FileName="Assets\DanceOff\PlayerScore.cs" Line="76" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
