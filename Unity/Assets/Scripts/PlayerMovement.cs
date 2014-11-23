@@ -71,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
         {
             facingRight = false; //for animation
             transform.position = new Vector2(transform.position.x - (walkSpeed * Time.deltaTime), transform.position.y);
+
             
             if (transform.position.x < maxLeftPos - 3.0f)
             {
@@ -171,12 +172,13 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "fallgrube")
         {
             Debug.Log("TOOOOOT!!!");
+            
             anim.SetBool("isDead", true);
+            
             //animation.Play(animation.clip.name);
             // hier explosion abspielen
-            
+            //maxLeftPos = spawnPoint.position.x;
             Instantiate(explosionPrefab, transform.position, transform.rotation);
-
         }
         if (other.gameObject.tag == "ground")
         {
@@ -188,6 +190,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    IEnumerator wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
+
     //setze spieler und kamera zurück an spawnpoint
     void respawnPlayer()
     {
@@ -196,8 +203,7 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = spawnPoint.rotation;//new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
         GameObject.FindGameObjectWithTag("MainCamera").transform.position =
             new Vector3(spawnPoint.position.x + 4.0f, spawnPoint.position.y + 2.0f, spawnPoint.position.z - 10.0f);
-        anim.SetBool("isDead", false);
-        
+        anim.SetBool("isDead", false);        
     }
 
     void OnGUI()
