@@ -17,6 +17,20 @@ public class SpaceshipScript : MonoBehaviour {
 	}
 
 	void Update () {
+		if(points > 1111){
+			GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
+			foreach(var go in gos){
+				go.GetComponent<AsteroidScript>().Kill();
+			}
+			GameObject.Find("AsteroidSpawner").GetComponent<AsteroidSpawner>().paused = true;
+			if(GameObject.Find("Done_Enemy Ship") != null)
+				GameObject.Find("Done_Enemy Ship").transform.gameObject.SetActive(false);
+
+			if(transform.position.y > 10f)
+				Application.LoadLevel(6);
+			transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(0,8f,0), Time.deltaTime);
+			return;	
+		}
  		if(Input.GetKey(KeyCode.RightArrow) && transform.position.x < 8)
 		{
  			transform.position = transform.position + new Vector3(speed * Time.deltaTime,0,0);
