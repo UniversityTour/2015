@@ -20,6 +20,7 @@ public class Talk : MonoBehaviour {
 	public GUIStyle Right;
 	
 	Animator CameraAnim;
+	Animator StarAnim;
 
 
 	// Use this for initialization
@@ -34,6 +35,8 @@ public class Talk : MonoBehaviour {
 		
 		CameraAnim = Camera.main.GetComponent<Animator>();
 		CameraAnim.enabled = false;
+		StarAnim = GameObject.Find ("FabulousDanceOff").GetComponent<Animator>();
+		StarAnim.enabled = false;
 
 	
 	}
@@ -89,6 +92,8 @@ public class Talk : MonoBehaviour {
 				GameObject.Find ("DanceOffControl").GetComponent<DanceFloor>().EnterShowMode();
 				GameObject.Find ("Danceoff.xcf-Player _0").GetComponent<PlayerInput>().DanceAnim.enabled = true;
 				CameraAnim.enabled = true;
+				StarAnim.enabled = true;
+				
 				Destroy(this.gameObject);
 			}
 	

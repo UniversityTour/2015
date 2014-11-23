@@ -11,7 +11,10 @@ public class PlayerInput : MonoBehaviour {
 	
 		MyDanceFloor = GameObject.Find ("DanceOffControl").GetComponent<DanceFloor>();
 		DanceAnim = this.transform.parent.GetComponent<Animator>();
-		DanceAnim.enabled = false;
+		if(DanceAnim!=null)
+		{
+			DanceAnim.enabled = false;
+		}
 	
 	}
 	

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class AsteroidScript : MonoBehaviour {
 
 	public GameObject Explosion;
@@ -10,10 +11,12 @@ public class AsteroidScript : MonoBehaviour {
     private float angle = 0.0F;
     private Vector3 axis = Vector3.zero;
     private SpaceshipScript ship = null;
+    private PlaybackAsteroid play;
 
     void Start(){
 		if( GameObject.Find("Spaceship") != null)
 			ship = GameObject.Find("Spaceship").GetComponent<SpaceshipScript>() as SpaceshipScript;
+			play = GameObject.Find("AudioSource").GetComponent<PlaybackAsteroid>() as PlaybackAsteroid;
 		Random.rotation.ToAngleAxis(out angle, out axis);
     }
 	void Update () {
@@ -38,12 +41,14 @@ public class AsteroidScript : MonoBehaviour {
 				ship.points += 10;
     		GameObject.Find("AsteroidSpawner").GetComponent<AsteroidSpawner>().numAsteroids--;
 			Instantiate(Explosion, transform.position, Quaternion.identity);
+        	play.startSound();
         	Destroy(this.gameObject);
 		}
 		else if(other.name == "Spaceship")
 		{
     		GameObject.Find("AsteroidSpawner").GetComponent<AsteroidSpawner>().numAsteroids--;
 			Instantiate(Explosion, transform.position, Quaternion.identity);
+        	play.startSound();
         	Destroy(this.gameObject);
     	}
     }
@@ -72,6 +77,7 @@ public class AsteroidScript : MonoBehaviour {
 
     public void Kill(){
     	ship.points += 10;
+    	play.startSound();
     	Destroy(this.gameObject);
     	GameObject.Find("AsteroidSpawner").GetComponent<AsteroidSpawner>().numAsteroids--;
     }

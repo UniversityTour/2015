@@ -19,6 +19,7 @@ public class PlayerScore : MonoBehaviour {
 	public float CharPassTime = 0.1f;
 	
 	bool Textfinished = false;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,7 @@ public class PlayerScore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 	
 		if(score >= MaxScore)
 		{
@@ -88,7 +90,58 @@ public class PlayerScore : MonoBehaviour {
 	IEnumerator Ender()
 	{
 		//GameObject.Find ("Danceoff.xcf-Player _0").GetComponent<Animator>().enabled = false;
-		yield return new WaitForSeconds(5.0f);
+		//GameObject.Find ("Player").GetComponent<Animator>().enabled = false;
+		
+		AudioSource Musik = GameObject.Find ("FabulousDanceOff").GetComponent<AudioSource>();
+		
+
+			if(Musik!=null)
+			{
+				Musik.volume = 0.9f;
+			}
+		
+		yield return new WaitForSeconds(0.1f);
+		
+		if(Musik!=null)
+		{
+			Musik.volume = 0.8f;
+		}
+
+		yield return new WaitForSeconds(0.1f);
+		
+		if(Musik!=null)
+		{
+			Musik.volume = 0.7f;
+		}
+		
+		yield return new WaitForSeconds(0.1f);
+		
+		if(Musik!=null)
+		{
+			Musik.volume = 0.6f;
+		}
+		
+		yield return new WaitForSeconds(0.1f);
+		
+		if(Musik!=null)
+		{
+			Musik.volume = 0.5f;
+		}
+		
+		yield return new WaitForSeconds(0.1f);
+		
+		if(Musik!=null)
+		{
+			Musik.volume = 0.4f;
+		}
+		
+		yield return new WaitForSeconds(0.1f);
+		
+		if(Musik!=null)
+		{
+			Musik.volume = 0.0f;
+		}
+		
 		Trennwand.renderer.enabled = true;
 		StartGUIEnde = true;
 	}

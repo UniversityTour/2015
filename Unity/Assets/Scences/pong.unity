@@ -200,7 +200,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: db61264ea4d4fbe4292b429d7fe6be37, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db61264ea4d4fbe4292b429d7fe6be37, type: 2}
@@ -1531,7 +1531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &527466605
 Transform:
   m_ObjectHideFlags: 0
@@ -1800,7 +1800,7 @@ AudioSource:
   m_GameObject: {fileID: 833481591}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: d7904adc0f2da484daaff4b677e9aa87, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a4889e8453496194cbc0eeb96b00c2cf, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1861,7 +1861,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!1 &863578158
 GameObject:
   m_ObjectHideFlags: 0
