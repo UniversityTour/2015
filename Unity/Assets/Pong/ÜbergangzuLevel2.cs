@@ -57,7 +57,7 @@ public class ÜbergangzuLevel2 : MonoBehaviour {
 			GUI.Box (new Rect(50,Screen.height/3,Screen.width/3,Screen.height/2),type,MyStyle);
 			if(GUILayout.Button ("Bring mich weiter"))
 			{
-				Application.LoadLevel(2);
+				Application.LoadLevel("pitfall");
 			}
 		}
 	}
