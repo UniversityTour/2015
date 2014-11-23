@@ -548,7 +548,7 @@ MonoBehaviour:
   IntroOver: 0
   StoreOpen: 0
   PlayIntro: 1
-  GamePaused: 0
+  GamePaused: 1
   RainbowTrails: 0
   Cage: 0
   CageTex: {fileID: 2100000, guid: 7a8d3a9e777de54429baa86102f82883, type: 2}

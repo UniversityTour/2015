@@ -65,9 +65,9 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("collision with player");
             Debug.Log("TOOOOOT!!!");
             GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isDead", true);
-            other.transform.position = spawnPoint.position;
-            GameObject.FindGameObjectWithTag("MainCamera").transform.position =
-                new Vector3(spawnPoint.position.x + 4.0f, spawnPoint.position.y + 2.0f, spawnPoint.position.z - 10.0f);
+            //other.transform.position = spawnPoint.position;
+           // GameObject.FindGameObjectWithTag("MainCamera").transform.position =
+            //    new Vector3(spawnPoint.position.x + 4.0f, spawnPoint.position.y + 2.0f, spawnPoint.position.z - 10.0f);
         }
     }
 }
