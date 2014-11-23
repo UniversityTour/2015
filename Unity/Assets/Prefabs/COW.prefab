@@ -150,7 +150,7 @@ GameObject:
   - 54: {fileID: 5400000}
   m_Layer: 0
   m_Name: COW
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 2}
+  Speed: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
