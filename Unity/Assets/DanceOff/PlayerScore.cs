@@ -19,6 +19,7 @@ public class PlayerScore : MonoBehaviour {
 	public float CharPassTime = 0.1f;
 	
 	bool Textfinished = false;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,7 @@ public class PlayerScore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 	
 		if(score >= MaxScore)
 		{
