@@ -34,19 +34,19 @@ public class SpaceshipScript : MonoBehaviour {
 			transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(0,8f,0), Time.deltaTime);
 			return;	
 		}
- 		if(Input.GetKey(KeyCode.RightArrow) && transform.position.x < 8)
+ 		if((Input.GetKey(KeyCode.RightArrow) ||Input.GetKey(KeyCode.D) ) && transform.position.x < 8)
 		{
  			transform.position = transform.position + new Vector3(speed * Time.deltaTime,0,0);
 		}
-		if(Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -8)
+		if((Input.GetKey(KeyCode.LeftArrow) ||Input.GetKey(KeyCode.A)) && transform.position.x > -8)
 		{
  			transform.position = transform.position +  new Vector3(-speed * Time.deltaTime,0,0);
 		}
-		if(Input.GetKey(KeyCode.DownArrow) && transform.position.y > -5.5)
+		if((Input.GetKey(KeyCode.DownArrow) ||Input.GetKey(KeyCode.S)) && transform.position.y > -5.5)
 		{
 			transform.position = transform.position +  new Vector3(0,-speed * Time.deltaTime,0);
 		}
-		if(Input.GetKey(KeyCode.UpArrow) && transform.position.y < 5.5)
+		if((Input.GetKey(KeyCode.UpArrow) ||Input.GetKey(KeyCode.W)) && transform.position.y < 5.5)
 		{
  			transform.position = transform.position +  new Vector3(0,speed * Time.deltaTime,0);
 		}

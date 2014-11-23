@@ -9,15 +9,18 @@ public class AsteroidScript : MonoBehaviour {
 	// Update is called once per frame
     private float angle = 0.0F;
     private Vector3 axis = Vector3.zero;
-    private SpaceshipScript ship;
+    private SpaceshipScript ship = null;
 
     void Start(){
-		ship = GameObject.Find("Spaceship").GetComponent<SpaceshipScript>() as SpaceshipScript;
+		if( GameObject.Find("Spaceship") != null)
+			ship = GameObject.Find("Spaceship").GetComponent<SpaceshipScript>() as SpaceshipScript;
 		Random.rotation.ToAngleAxis(out angle, out axis);
     }
 	void Update () {
 		if(paused)
 			return;
+		if(ship == null && GameObject.Find("Spaceship") != null)
+			ship = GameObject.Find("Spaceship").GetComponent<SpaceshipScript>() as SpaceshipScript;
 		transform.position += Vector3.down * Speed * Time.deltaTime;
 		checkBoundaries();
 		transform.RotateAround(transform.position, axis, Time.deltaTime * 20);

@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float maxLeftPos;
     public Transform spawnPoint;
 
-    private int numLives = 3;
+    private int numLives = 5;
     private int points = 0;
 
 
@@ -172,9 +172,10 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isDead", true);
             //animation.Play(animation.clip.name);
             // hier explosion abspielen
+            numLives--;
+            respawnPlayer();
             if (isDead){
-                numLives--;
-                respawnPlayer();
+                Debug.Log("ist tot kennmeldung");
             }
 
         }
@@ -195,6 +196,7 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = spawnPoint.rotation;//new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
         GameObject.FindGameObjectWithTag("MainCamera").transform.position =
             new Vector3(spawnPoint.position.x + 4.0f, spawnPoint.position.y + 2.0f, spawnPoint.position.z - 10.0f);
+        anim.SetBool("isDead", false);
         
     }
 
