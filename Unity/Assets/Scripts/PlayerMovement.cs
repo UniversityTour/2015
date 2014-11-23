@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     private float maxLeftPos;
     public Transform spawnPoint;
 
+    private int numLives = 3;
+    private int points = 0;
+
 
     private enum State
     {
@@ -45,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(numLives < 0)
+            Application.LoadLevel(0);
         CheckInput();
         animationHandling();
         if (isGrounded)
@@ -98,8 +103,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 //level completed
                 //load new level
-                Debug.Log("Level completed! Yeeee!");
-            }
+                if(Application.loadedLevel == 1)
+                    Application.LoadLevel(2);
+
+                else if(Application.loadedLevel == 2)
+                    Application.LoadLevel(4);            }
         }
     }
 
@@ -164,13 +172,19 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isDead", true);
             //animation.Play(animation.clip.name);
             // hier explosion abspielen
-            if (isDead)
+            if (isDead){
+                numLives--;
                 respawnPlayer();
+            }
 
         }
         if (other.gameObject.tag == "ground")
         {
             isGrounded = true;
+        }
+        if (other.gameObject.tag == "Enemy")
+        {
+            points += 20;
         }
     }
 
@@ -182,6 +196,16 @@ public class PlayerMovement : MonoBehaviour
         GameObject.FindGameObjectWithTag("MainCamera").transform.position =
             new Vector3(spawnPoint.position.x + 4.0f, spawnPoint.position.y + 2.0f, spawnPoint.position.z - 10.0f);
         
+    }
+
+    void OnGUI()
+    {
+        var prev = GUI.skin;
+        var centeredStyle = GUI.skin.GetStyle("Label");
+        centeredStyle.alignment =  TextAnchor.MiddleRight;
+        GUI.Label(new Rect(Screen.width - 70, 15, 60, 30), numLives + "   Lives", centeredStyle);
+        GUI.Label(new Rect(Screen.width - 200, 30, 190, 30), points + "  Points",centeredStyle);
+        GUI.skin = prev;
     }
 
 }
