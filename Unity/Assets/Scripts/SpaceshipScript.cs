@@ -8,6 +8,7 @@ public class SpaceshipScript : MonoBehaviour {
 	public GameObject[] lasers;
 	public GameObject explostion;
 	public bool dubstepGun = false;
+	public int points = 0;
 	private int numLives = 3;
 
 
@@ -16,6 +17,20 @@ public class SpaceshipScript : MonoBehaviour {
 	}
 
 	void Update () {
+		if(points > 1111){
+			GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
+			foreach(var go in gos){
+				go.GetComponent<AsteroidScript>().Kill();
+			}
+			GameObject.Find("AsteroidSpawner").GetComponent<AsteroidSpawner>().paused = true;
+			if(GameObject.Find("Done_Enemy Ship") != null)
+				GameObject.Find("Done_Enemy Ship").transform.gameObject.SetActive(false);
+
+			if(transform.position.y > 10f)
+				Application.LoadLevel(6);
+			transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(0,8f,0), Time.deltaTime);
+			return;	
+		}
  		if(Input.GetKey(KeyCode.RightArrow) && transform.position.x < 8)
 		{
  			transform.position = transform.position + new Vector3(speed * Time.deltaTime,0,0);
@@ -38,7 +53,6 @@ public class SpaceshipScript : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Return) && dubstepGun){
 			GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
 			foreach(var go in gos){
-				Debug.Log(go);
 				go.GetComponent<AsteroidScript>().Kill();
 			}
 			Instantiate(lasers[1], new Vector3(0, 0, -11f), Quaternion.identity);
@@ -48,7 +62,21 @@ public class SpaceshipScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		GameObject.Find("AsteroidSpawner").GetComponent<SpaceshipToggle>().Reposition();
-		Instantiate(explostion, transform.position, Quaternion.identity);
+		if(other.name == "Done_Enemy Ship"){
+
+		}
+		else{
+			GameObject.Find("AsteroidSpawner").GetComponent<SpaceshipToggle>().Reposition();
+			Instantiate(explostion, transform.position, Quaternion.identity);
+    	}
     }
+   	void OnGUI()
+	{
+		var prev = GUI.skin;
+		var centeredStyle = GUI.skin.GetStyle("Label");
+    centeredStyle.alignment =  TextAnchor.MiddleRight;
+		GUI.Label(new Rect(Screen.width - 70, 15, 60, 30), numLives + "   Lives", centeredStyle);
+		GUI.Label(new Rect(Screen.width - 200, 30, 190, 30), points + "  Points",centeredStyle);
+		GUI.skin = prev;
+	}
 }

@@ -30,7 +30,9 @@ public class SpaceGUI : MonoBehaviour {
     		 GUI.DrawTexture(new Rect(10, 10, 100, 100), textures[toShow], ScaleMode.StretchToFill, true, 10.0F);
     		 GUI.DrawTexture(new Rect(120, 10, 300, 100), background, ScaleMode.StretchToFill, true, 10.0F);
     		 GUI.color = Color.black;
-    		 GUI.Label(new Rect(140, 15, 280, 95), texts[toShow]);
+    		 		var centeredStyle = GUI.skin.GetStyle("Label");
+    centeredStyle.alignment =  TextAnchor.MiddleCenter;
+    		 GUI.Label(new Rect(140, 15, 280, 95), texts[toShow], centeredStyle);
        	}        
     }
 }

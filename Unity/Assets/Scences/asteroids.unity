@@ -3049,6 +3049,7 @@ GameObject:
   - 4: {fileID: 580065626}
   - 114: {fileID: 580065627}
   - 114: {fileID: 580065628}
+  - 114: {fileID: 580065629}
   m_Layer: 0
   m_Name: AsteroidSpawner
   m_TagString: Untagged
@@ -3089,8 +3090,9 @@ MonoBehaviour:
   maxAsteroidSpeed: 7
   maxAsteroids: 10
   numAsteroids: 0
-  cows: 1
+  cows: 0
   satelittes: 0
+  paused: 0
 --- !u!114 &580065628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3103,6 +3105,85 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1.5
+--- !u!114 &580065629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 580065625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9d45c8d04fae6489892bff52546bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Options:
+  - Cows
+  - GUN
+  Desc:
+  - Cows instead of Asteroids
+  - Dubstep gun ( OP as fuck !)
+  Price: c8000000e8030000
+  StoreOpen: 0
+  background: {fileID: 2800000, guid: c9f9bfc4353f291469e1d4313109a059, type: 3}
+  MyStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
 --- !u!1 &674425423
 GameObject:
   m_ObjectHideFlags: 0
@@ -4845,11 +4926,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a79236c05e5258d4f8e8a31d48a439f5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.274096847
+      value: 8.00004768
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a79236c05e5258d4f8e8a31d48a439f5, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -4.99999952
+      value: -5.00000048
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a79236c05e5258d4f8e8a31d48a439f5, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5614,7 +5695,7 @@ Transform:
   m_PrefabInternal: {fileID: 982671564}
   m_GameObject: {fileID: 1748749249}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
-  m_LocalPosition: {x: -.136040688, y: -.274096847, z: -4.99999952}
+  m_LocalPosition: {x: -.136040688, y: 8.00004768, z: -5.00000048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2118906904}
@@ -5686,7 +5767,8 @@ MonoBehaviour:
   - {fileID: 100000, guid: 3a46a30f113dbab4598b1a3ed829b3f6, type: 2}
   - {fileID: 100002, guid: 57137b89e09584e3e839655c51e6f042, type: 2}
   explostion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
-  dubstepGun: 1
+  dubstepGun: 0
+  points: 0
 --- !u!82 &1748749255
 AudioSource:
   m_ObjectHideFlags: 0

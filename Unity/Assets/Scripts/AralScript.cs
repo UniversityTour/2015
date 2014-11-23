@@ -6,8 +6,13 @@ public class AralScript : MonoBehaviour {
 	public float spawnFrequency = 30f;
 	private Renderer[] rs;
 	private bool flag = false;
+	private SpaceShop shop;
+	private AsteroidSpawner roids;
 	// Use this for initialization
 	void Start () {
+
+		shop = GameObject.Find("AsteroidSpawner").GetComponent<SpaceShop>() as SpaceShop;
+		roids = GameObject.Find("AsteroidSpawner").GetComponent<AsteroidSpawner>() as AsteroidSpawner;
 		rs = GetComponentsInChildren<Renderer>();
 		foreach(var r in rs)
 			r.enabled = false;
@@ -23,7 +28,7 @@ public class AralScript : MonoBehaviour {
 			foreach(var r in rs)
 				r.enabled = true;
 			collider.enabled = true;
-			spawnFrequency = 30f;
+			spawnFrequency = 20f;
 			flag = true;
 		}
 		if((transform.position - new Vector3(0,3f,-6)).magnitude < 0.5f)
@@ -42,6 +47,12 @@ public class AralScript : MonoBehaviour {
 			pos.z = -6f;
 			pos.y = 10f;
 			transform.position = pos;
+			shop.StoreOpen = true;
+			roids.paused = true;
+			GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
+			foreach(var go in gos){
+				go.GetComponent<AsteroidScript>().paused = true;
+			}
 		}	
 	}
 

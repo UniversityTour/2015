@@ -101,7 +101,7 @@ public class DanceFloor : MonoBehaviour {
 
 			for ( int i = 0; i < OrderCount; i++ )
 			{
-				DanceOrders.Add ((int)Random.Range (0,3));
+				DanceOrders.Add ((int)Random.Range (0,4));
 			}
 		
 	}
@@ -145,23 +145,26 @@ public class DanceFloor : MonoBehaviour {
 	{
 		for(int i = 0; i < DanceOrders.Count; i++)
 		{
-			int NewOrder = DanceOrders[i];
-			if(NewOrder == LastOrder)
+			if(ShowRunning)
 			{
-				if(NewOrder>0)
+				int NewOrder = DanceOrders[i];
+				if(NewOrder == LastOrder)
 				{
-					NewOrder--;
+					if(NewOrder>0)
+					{
+						NewOrder--;
+					}
+					else
+					{
+						NewOrder++;
+					}
 				}
-				else
-				{
-					NewOrder++;
-				}
+				ChooseDanceFloor(DanceOrders[i]);
+				LastOrder = NewOrder;
+				ActiveNode = LastOrder;
+				yield return new WaitForSeconds(1.0f);
+				ResetDanceFloors();
 			}
-			ChooseDanceFloor(DanceOrders[i]);
-			LastOrder = NewOrder;
-			ActiveNode = LastOrder;
-			yield return new WaitForSeconds(1.0f);
-			ResetDanceFloors();
 			
 		}
 		DanceOrders.Clear();
