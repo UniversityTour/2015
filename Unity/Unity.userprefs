@@ -1,10 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DanceOff\PlayerScore.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DanceOff\DanceFloor.cs">
     <Files>
-      <File FileName="Assets\DanceOff\PlayerScore.cs" Line="104" Column="41" />
+      <File FileName="Assets\DanceOff\DanceFloor.cs" Line="15" Column="2" />
+      <File FileName="Assets\DanceOff\PlayerScore.cs" Line="1" Column="1" />
       <File FileName="Assets\DanceOff\PlayerInput.cs" Line="1" Column="1" />
-      <File FileName="Assets\DanceOff\DanceFloor.cs" Line="1" Column="1" />
       <File FileName="Assets\DanceOff\Talk.cs" Line="1" Column="1" />
       <File FileName="Assets\Pong\Puck.cs" Line="1" Column="1" />
       <File FileName="Assets\Pong\TalkSound.cs" Line="1" Column="1" />
