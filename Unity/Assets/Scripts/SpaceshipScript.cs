@@ -17,6 +17,9 @@ public class SpaceshipScript : MonoBehaviour {
 	}
 
 	void Update () {
+        if(numLives < 0)
+            Application.LoadLevel(0);
+
 		if(points > 1111){
 			GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
 			foreach(var go in gos){
@@ -66,6 +69,7 @@ public class SpaceshipScript : MonoBehaviour {
 
 		}
 		else{
+			numLives--;
 			GameObject.Find("AsteroidSpawner").GetComponent<SpaceshipToggle>().Reposition();
 			Instantiate(explostion, transform.position, Quaternion.identity);
     	}

@@ -9,7 +9,6 @@ public class AsteroidScript : MonoBehaviour {
 	// Update is called once per frame
     private float angle = 0.0F;
     private Vector3 axis = Vector3.zero;
-    private bool up = false;
     private SpaceshipScript ship;
 
     void Start(){
@@ -32,7 +31,8 @@ public class AsteroidScript : MonoBehaviour {
 				StartCoroutine(recoil(0.075f,  Vector3.up));
 			}
 		else if( other.name.Contains("Laser")){
-			ship.points += 10;
+			if(ship != null)
+				ship.points += 10;
     		GameObject.Find("AsteroidSpawner").GetComponent<AsteroidSpawner>().numAsteroids--;
 			Instantiate(Explosion, transform.position, Quaternion.identity);
         	Destroy(this.gameObject);
@@ -58,7 +58,6 @@ public class AsteroidScript : MonoBehaviour {
 
 
     IEnumerator recoil(float duration, Vector3 direction) {
-    	up = true;
         while (duration > 0f) {
             duration -= Time.deltaTime;
 
@@ -66,7 +65,6 @@ public class AsteroidScript : MonoBehaviour {
       
             yield return new WaitForSeconds(duration);
         }
-        up = false;
      }
 
     public void Kill(){
