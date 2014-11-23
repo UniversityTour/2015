@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 2.0f;
     public bool canJump = true;
     public bool isDead = false;
-    public Animation explosionAnim;
 
     Animator anim;
 
@@ -58,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckInput()
     {
-
+        // go left
         if (Input.GetKey("a"))
         {
             facingRight = false; //for animation
@@ -72,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
                 state = State.Walking;
             }
         }
+        //go right
         if (Input.GetKey("d"))
         {
             facingRight = true; //for animation
@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
                 state = State.Walking;
             }
         }
+        // jump
         if (Input.GetKeyDown("space") && !(anim.GetBool("isJumping") || anim.GetBool("isFalling")))
         {
             isGrounded = false;
@@ -89,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpSpeed);
         }
+        // enter door
         if (Input.GetKeyDown("w"))
         {
             Debug.Log("w pressed");
@@ -101,17 +103,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /* bool IsGrounded()
-     {
-         return (rigidbody.velocity.y == 0);
-     }*/
-
+    // handles the animation with the animator
     void animationHandling()
     {
         // ANIMATION sector
         if (anim)
         {
-            //Debug.Log("in the animator");
             if (state == State.Jumping)
             {
                 //change to jump animation
@@ -122,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
                     anim.SetBool("isWalking", false);
                     anim.SetBool("isGrounded", false);
                 }
+                //change to fall animation
                 if (rigidbody.velocity.y < 0.0f && !isGrounded)
                 {
                     anim.SetBool("isJumping", false);
@@ -130,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
                     anim.SetBool("isGrounded", false);
                 }
             }
+            // change to walk animation
             else if (state == State.Walking)
             {
                 anim.SetBool("isJumping", false);
@@ -143,15 +142,16 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (state == State.Kick)
             {
-                //change to walk animation
+                //change to kick animation, roundhousekick
             }
             else if (state == State.Idle)
             {
                 //change to walk animation
+                // changes yet automatically
             }
             else if (state == State.Flying)
             {
-                //change to fly animation
+                //change to fly animation with jetpack
             }
         }
     }
@@ -162,6 +162,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("TOOOOOT!!!");
             anim.SetBool("isDead", true);
+            //animation.Play(animation.clip.name);
+            // hier explosion abspielen
             if (isDead)
                 respawnPlayer();
 
@@ -172,6 +174,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //setze spieler und kamera zurück an spawnpoint
     void respawnPlayer()
     {
         transform.position = spawnPoint.position;
