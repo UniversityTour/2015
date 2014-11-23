@@ -45,7 +45,10 @@ public class Puck : MonoBehaviour {
 			this.transform.position += direction * speed;
 		}
 
-
+        if (transform.position.x >= 20 || transform.position.x <= -20)
+        {
+            Destroy(gameObject);
+        }
 		
 		if(Einstellungen.RainbowTrails == true)
 		{
