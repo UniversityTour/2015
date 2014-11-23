@@ -7,3 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scences/menu.unity
+  - enabled: 1
+    path: Assets/Scences/pitfall.unity
+  - enabled: 1
+    path: Assets/Scences/pitfall_2.unity
