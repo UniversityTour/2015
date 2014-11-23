@@ -16,6 +16,10 @@ public class DanceFloor : MonoBehaviour {
 	public List<int> DanceOrders;
 	
 	public int ActiveNode;
+	
+	public GameObject WoWPrefab;
+	
+	int Multiplikator = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -29,14 +33,15 @@ public class DanceFloor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if(Input.GetKeyDown("w"))
-		{
-			ShowRunning = true;
-			StartCoroutine(SendDanceOrders());
-			audio.Play();
-		}
+		
 	
+	}
 	
+	public void EnterShowMode()
+	{
+		ShowRunning = true;
+		StartCoroutine(SendDanceOrders());
+		audio.Play();
 	}
 	
 	
@@ -105,8 +110,35 @@ public class DanceFloor : MonoBehaviour {
 	{
 		if(Key == ActiveNode)
 		{
-			Debug.Log ("Correct "+Time.time);
+			Multiplikator++;
+			Debug.Log ("Key hit");
+			if(Key == 0)
+			{
+				Instantiate(WoWPrefab,new Vector3(-12,-3,0),Quaternion.identity);
+			}
+			if(Key == 1)
+			{
+				Instantiate(WoWPrefab,new Vector3(-4,-3,0),Quaternion.identity);
+			}
+			if(Key == 2)
+			{
+				Instantiate(WoWPrefab,new Vector3(3,-3,0),Quaternion.identity);
+			}
+			if(Key == 3)
+			{
+				Instantiate(WoWPrefab,new Vector3(13,-6,0),Quaternion.identity);
+			}
+			
+			GameObject.Find ("Score").GetComponent<PlayerScore>().score += 10*Multiplikator;
+			//Instantiate(WoWPrefab,new Vector3(0,0,0),Quaternion.identity);
 		}
+		else
+		{
+			Multiplikator=1;
+			Debug.Log ("Wrong Node");
+		}
+		
+		Mathf.Clamp (Multiplikator,1,100);
 	}
 	
 	IEnumerator SendDanceOrders()
