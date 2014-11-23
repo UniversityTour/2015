@@ -21,6 +21,7 @@ public class Talk : MonoBehaviour {
 	
 	Animator CameraAnim;
 
+
 	// Use this for initialization
 	void Start () {
 	
@@ -33,6 +34,7 @@ public class Talk : MonoBehaviour {
 		
 		CameraAnim = Camera.main.GetComponent<Animator>();
 		CameraAnim.enabled = false;
+
 	
 	}
 	
@@ -79,6 +81,7 @@ public class Talk : MonoBehaviour {
 				GUILayout.BeginVertical();
 				GUILayout.Label(temp,Right);
 				GUILayout.EndVertical();
+				
 			}
 			if(msg.Contains ("/E"))
 			{
