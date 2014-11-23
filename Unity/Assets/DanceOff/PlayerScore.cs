@@ -91,7 +91,57 @@ public class PlayerScore : MonoBehaviour {
 	{
 		//GameObject.Find ("Danceoff.xcf-Player _0").GetComponent<Animator>().enabled = false;
 		//GameObject.Find ("Player").GetComponent<Animator>().enabled = false;
-		yield return new WaitForSeconds(2.0f);
+		
+		AudioSource Musik = GameObject.Find ("FabulousDanceOff").GetComponent<AudioSource>();
+		
+
+			if(Musik!=null)
+			{
+				Musik.volume = 0.9f;
+			}
+		
+		yield return new WaitForSeconds(0.1f);
+		
+		if(Musik!=null)
+		{
+			Musik.volume = 0.8f;
+		}
+
+		yield return new WaitForSeconds(0.1f);
+		
+		if(Musik!=null)
+		{
+			Musik.volume = 0.7f;
+		}
+		
+		yield return new WaitForSeconds(0.1f);
+		
+		if(Musik!=null)
+		{
+			Musik.volume = 0.6f;
+		}
+		
+		yield return new WaitForSeconds(0.1f);
+		
+		if(Musik!=null)
+		{
+			Musik.volume = 0.5f;
+		}
+		
+		yield return new WaitForSeconds(0.1f);
+		
+		if(Musik!=null)
+		{
+			Musik.volume = 0.4f;
+		}
+		
+		yield return new WaitForSeconds(0.1f);
+		
+		if(Musik!=null)
+		{
+			Musik.volume = 0.0f;
+		}
+		
 		Trennwand.renderer.enabled = true;
 		StartGUIEnde = true;
 	}
