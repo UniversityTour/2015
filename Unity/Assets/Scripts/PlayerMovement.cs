@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private bool inFrontOfDoor=false;
     private float maxLeftPos;
     public Transform spawnPoint;
+    public GameObject explosionPrefab;
 
 
     private int numLives = 5;
@@ -70,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
         {
             facingRight = false; //for animation
             transform.position = new Vector2(transform.position.x - (walkSpeed * Time.deltaTime), transform.position.y);
+            
             if (transform.position.x < maxLeftPos - 3.0f)
             {
                 transform.position = new Vector2(maxLeftPos - 3.0f, transform.position.y);
@@ -106,12 +108,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //level completed
                 //load new level
-                ((Animator)GameObject.FindGameObjectWithTag("door").GetComponent<Animator>()).SetBool("justOpened",true);
-                //if(Application.loadedLevel == 1)
-                 //   Application.LoadLevel(2);
-
-                //else if(Application.loadedLevel == 2)
-                //    Application.LoadLevel(4);          
+                ((Animator)GameObject.FindGameObjectWithTag("door").GetComponent<Animator>()).SetBool("justOpened",true);         
             }
         }
     }
@@ -177,11 +174,8 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isDead", true);
             //animation.Play(animation.clip.name);
             // hier explosion abspielen
-            numLives--;
-            respawnPlayer();
-            if (isDead){
-                Debug.Log("ist tot kennmeldung");
-            }
+            
+            Instantiate(explosionPrefab, transform.position, transform.rotation);
 
         }
         if (other.gameObject.tag == "ground")
@@ -190,13 +184,14 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.gameObject.tag == "Enemy")
         {
-            points += 20;
+            //points += 20;
         }
     }
 
     //setze spieler und kamera zurück an spawnpoint
     void respawnPlayer()
     {
+        numLives--;
         transform.position = spawnPoint.position;
         transform.rotation = spawnPoint.rotation;//new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
         GameObject.FindGameObjectWithTag("MainCamera").transform.position =
@@ -210,8 +205,8 @@ public class PlayerMovement : MonoBehaviour
         var prev = GUI.skin;
         var centeredStyle = GUI.skin.GetStyle("Label");
         centeredStyle.alignment =  TextAnchor.MiddleRight;
-        GUI.Label(new Rect(Screen.width - 70, 15, 60, 30), numLives + "   Lives", centeredStyle);
-        GUI.Label(new Rect(Screen.width - 200, 30, 190, 30), points + "  Points",centeredStyle);
+        GUI.Label(new Rect(Screen.width - 70, 15, 60, 30), numLives + "   Leben", centeredStyle);
+        //GUI.Label(new Rect(Screen.width - 200, 30, 190, 30), points + "  Points",centeredStyle);
         GUI.skin = prev;
     }
 
