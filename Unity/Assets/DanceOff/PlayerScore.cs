@@ -90,7 +90,8 @@ public class PlayerScore : MonoBehaviour {
 	IEnumerator Ender()
 	{
 		//GameObject.Find ("Danceoff.xcf-Player _0").GetComponent<Animator>().enabled = false;
-		yield return new WaitForSeconds(5.0f);
+		//GameObject.Find ("Player").GetComponent<Animator>().enabled = false;
+		yield return new WaitForSeconds(2.0f);
 		Trennwand.renderer.enabled = true;
 		StartGUIEnde = true;
 	}

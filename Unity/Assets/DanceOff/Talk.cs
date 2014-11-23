@@ -93,6 +93,7 @@ public class Talk : MonoBehaviour {
 				GameObject.Find ("Danceoff.xcf-Player _0").GetComponent<PlayerInput>().DanceAnim.enabled = true;
 				CameraAnim.enabled = true;
 				StarAnim.enabled = true;
+				
 				Destroy(this.gameObject);
 			}
 	
