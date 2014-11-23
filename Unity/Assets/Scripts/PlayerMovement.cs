@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     private bool inFrontOfDoor=false;
     private float maxLeftPos;
     public Transform spawnPoint;
-    public AudioClip jumpSound;
 
 
     private int numLives = 5;
@@ -51,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(numLives < 0)
             Application.LoadLevel(0);
         CheckInput();
@@ -106,11 +106,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 //level completed
                 //load new level
-                if(Application.loadedLevel == 1)
-                    Application.LoadLevel(2);
+                ((Animator)GameObject.FindGameObjectWithTag("door").GetComponent<Animator>()).SetBool("justOpened",true);
+                //if(Application.loadedLevel == 1)
+                 //   Application.LoadLevel(2);
 
-                else if(Application.loadedLevel == 2)
-                    Application.LoadLevel(4);            }
+                //else if(Application.loadedLevel == 2)
+                //    Application.LoadLevel(4);          
+            }
         }
     }
 
