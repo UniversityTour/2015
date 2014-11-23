@@ -80,6 +80,6 @@ public class EndShip : MonoBehaviour {
        // Debug.Log("endS");
         yield return new WaitForSeconds(3);
         //Debug.Log("waitO");
-        Application.Quit();
+        Application.LoadLevel(7);
     }
 }
