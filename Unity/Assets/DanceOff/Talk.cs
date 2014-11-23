@@ -18,6 +18,8 @@ public class Talk : MonoBehaviour {
 	
 	public GUIStyle MyStyle;
 	public GUIStyle Right;
+	
+	Animator CameraAnim;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +30,9 @@ public class Talk : MonoBehaviour {
 		Debug.Log (msg);
 		
 		TalkActive = true;
+		
+		CameraAnim = Camera.main.GetComponent<Animator>();
+		CameraAnim.enabled = false;
 	
 	}
 	
@@ -79,6 +84,7 @@ public class Talk : MonoBehaviour {
 			{
 				TalkActive = false;
 				GameObject.Find ("DanceOffControl").GetComponent<DanceFloor>().EnterShowMode();
+				CameraAnim.enabled = true;
 				Destroy(this.gameObject);
 			}
 	
