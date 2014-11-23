@@ -4,7 +4,7 @@ using System.Collections;
 public class AsteroidScript : MonoBehaviour {
 
 	public GameObject Explosion;
-	public float Speed { get; set; }
+	public float Speed;
 	// Update is called once per frame
     private float angle = 0.0F;
     private Vector3 axis = Vector3.zero;
@@ -14,7 +14,7 @@ public class AsteroidScript : MonoBehaviour {
 		Random.rotation.ToAngleAxis(out angle, out axis);
     }
 	void Update () {
-			transform.parent.gameObject.transform.position += Vector3.down * Speed * Time.deltaTime;
+		transform.position += Vector3.down * Speed * Time.deltaTime;
 		checkBoundaries();
 		transform.RotateAround(transform.position, axis, Time.deltaTime * 20);
 	}
@@ -26,7 +26,7 @@ public class AsteroidScript : MonoBehaviour {
 				Speed = Mathf.Lerp(0f, Speed * 0.75f,Time.time);
 				StartCoroutine(recoil(0.075f,  Vector3.up));
 			}
-		else
+		else if(other.name == "Spaceship" || other.name.Contains("Laser"))
 		{
 			Instantiate(Explosion, transform.position, Quaternion.identity);
         	Destroy(this.gameObject);
@@ -56,4 +56,9 @@ public class AsteroidScript : MonoBehaviour {
         }
         up = false;
      }
+
+    public void Kill(){
+    	Destroy(this.gameObject);
+    	GameObject.Find("AsteroidSpawner").GetComponent<AsteroidSpawner>().numAsteroids--;
+    }
 }
