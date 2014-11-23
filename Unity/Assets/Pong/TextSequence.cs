@@ -16,11 +16,15 @@ public class TextSequence : MonoBehaviour {
 	float counter = 0;
 	
 	Settings Einstellungen;
+	BallSpawner spawn;
 
 	// Use this for initialization
 	void Start () {
 	
 		Einstellungen = GameObject.Find ("Settings").GetComponent<Settings>();
+		spawn = GameObject.Find ("Spawner").GetComponent<BallSpawner>();
+		spawn.enabled = false;
+		
 	
 	}
 	
@@ -79,6 +83,7 @@ public class TextSequence : MonoBehaviour {
 	void OnVideoOver()
 	{
 		GameObject.Find ("Settings").GetComponent<Settings>().IntroOver = true;
+		spawn.enabled = true;
 		Destroy(GameObject.Find ("Trennwand"));
 		Destroy (this.gameObject);
 	}

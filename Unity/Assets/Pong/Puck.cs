@@ -32,6 +32,7 @@ public class Puck : MonoBehaviour {
 			ActivateCage();
 		}
 		
+
 		this.direction = new Vector3(1.0f,1.0f).normalized;
 		this.speed = 0.1f;
 	
