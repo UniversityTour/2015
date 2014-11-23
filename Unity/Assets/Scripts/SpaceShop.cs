@@ -9,7 +9,7 @@ public class SpaceShop : MonoBehaviour {
 	public bool StoreOpen = false;
 	private AsteroidSpawner roids;
 	private SpaceshipScript ship;
-
+	private TileScript tiles;
 	public Texture2D background;
 	
 	Rect MainWindow = new Rect(Screen.width/4,Screen.height/20,Screen.width/2,Screen.height-(Screen.width/20));
@@ -19,6 +19,7 @@ public class SpaceShop : MonoBehaviour {
 	void Start () {
 		ship = GameObject.Find("Spaceship").GetComponent<SpaceshipScript>() as SpaceshipScript;
 		roids = GameObject.Find("AsteroidSpawner").GetComponent<AsteroidSpawner>() as AsteroidSpawner;
+		tiles = GameObject.Find("Background").GetComponent<TileScript>() as TileScript;
 	}
 
 	void OnGUI()
@@ -52,6 +53,7 @@ public class SpaceShop : MonoBehaviour {
 		if(GUILayout.Button ("Fertig"))
 		{
 			roids.paused = false;
+			tiles.paused = false;
 			StoreOpen = false;
 						GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
 			foreach(var go in gos){
