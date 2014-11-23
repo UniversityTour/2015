@@ -5,6 +5,7 @@ public class Puck : MonoBehaviour {
 
 	private Vector3 direction;
 	private float speed;
+    public GameObject pong;
 	
 	Settings Einstellungen;
 	
@@ -19,6 +20,7 @@ public class Puck : MonoBehaviour {
 	
 		RainbowTrail = this.GetComponent<TrailRenderer>();
 		RainbowTrail.enabled = false;
+        pong = GameObject.Find("AudioPong");
 	
 		Einstellungen = GameObject.Find ("Settings").GetComponent<Settings>();
 		//this.direction = new Vector3(1.0f, 1.0f).normalized;
@@ -63,6 +65,8 @@ public class Puck : MonoBehaviour {
 		//Debug.Log ("Collision with "+col.gameObject.name);
 		Vector3 normal = col.contacts[0].normal;
 		direction = Vector3.Reflect(direction, normal);
+        Instantiate(pong);
+        
 		speed += 0.01f;
 		
 		if(col.gameObject.name.Contains("Eigenraum"))

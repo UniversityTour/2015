@@ -8,11 +8,14 @@ public class AralScript : MonoBehaviour {
 	private bool flag = false;
 	private SpaceShop shop;
 	private AsteroidSpawner roids;
+	private TileScript tiles;
+
 	// Use this for initialization
 	void Start () {
 
 		shop = GameObject.Find("AsteroidSpawner").GetComponent<SpaceShop>() as SpaceShop;
 		roids = GameObject.Find("AsteroidSpawner").GetComponent<AsteroidSpawner>() as AsteroidSpawner;
+		tiles = GameObject.Find("Background").GetComponent<TileScript>() as TileScript;
 		rs = GetComponentsInChildren<Renderer>();
 		foreach(var r in rs)
 			r.enabled = false;
@@ -49,6 +52,7 @@ public class AralScript : MonoBehaviour {
 			transform.position = pos;
 			shop.StoreOpen = true;
 			roids.paused = true;
+			tiles.paused = true;
 			GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
 			foreach(var go in gos){
 				go.GetComponent<AsteroidScript>().paused = true;

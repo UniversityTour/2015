@@ -4,11 +4,14 @@ using System.Collections;
 public class PlayerInput : MonoBehaviour {
 
 	DanceFloor MyDanceFloor;
-
+	
+	public Animator DanceAnim;
 	// Use this for initialization
 	void Start () {
 	
 		MyDanceFloor = GameObject.Find ("DanceOffControl").GetComponent<DanceFloor>();
+		DanceAnim = this.transform.parent.GetComponent<Animator>();
+		DanceAnim.enabled = false;
 	
 	}
 	
@@ -31,6 +34,7 @@ public class PlayerInput : MonoBehaviour {
 		{
 			MyDanceFloor.TapButton(3);
 		}
+		
 	
 	
 	}

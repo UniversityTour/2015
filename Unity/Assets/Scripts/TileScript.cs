@@ -5,6 +5,7 @@ public class TileScript : MonoBehaviour {
 
 	public GameObject Tile;
 	public float speed = 1f;
+	public bool paused = false;
 	private Transform[] allChildren;
 	// Use this for initialization
 	void Start(){
@@ -16,6 +17,8 @@ public class TileScript : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
+		if(paused)
+			return;
 		foreach(var t in allChildren){
 			t.transform.position += Vector3.down * speed * Time.deltaTime;
 		}

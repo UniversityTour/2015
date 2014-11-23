@@ -84,6 +84,7 @@ public class Talk : MonoBehaviour {
 			{
 				TalkActive = false;
 				GameObject.Find ("DanceOffControl").GetComponent<DanceFloor>().EnterShowMode();
+				GameObject.Find ("Danceoff.xcf-Player _0").GetComponent<PlayerInput>().DanceAnim.enabled = true;
 				CameraAnim.enabled = true;
 				Destroy(this.gameObject);
 			}
