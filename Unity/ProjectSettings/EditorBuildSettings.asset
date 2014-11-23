@@ -7,3 +7,17 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scences/menu.unity
+  - enabled: 1
+    path: Assets/Scences/pitfall.unity
+  - enabled: 1
+    path: Assets/Scences/pitfall_2.unity
+  - enabled: 1
+    path: Assets/Scences/pong.unity
+  - enabled: 1
+    path: Assets/Scences/DanceOff.unity
+  - enabled: 1
+    path: Assets/Scences/asteroids.unity
+  - enabled: 1
+    path: Assets/Scences/end.unity
+  - enabled: 1
+    path: Assets/Scences/credits.unity

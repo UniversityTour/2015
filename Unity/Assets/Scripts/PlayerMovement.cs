@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float jumpHeight = 2.0f;
     public bool canJump = true;
+    public bool isDead = false;
+    public Animation explosionAnim;
 
     Animator anim;
 
@@ -28,14 +30,6 @@ public class PlayerMovement : MonoBehaviour
         Falling = 3,
         Flying = 4,
         Kick = 5
-    }
-
-
-
-
-
-    void Awake()
-    {
     }
 
 
@@ -88,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
                 state = State.Walking;
             }
         }
-        if (Input.GetKeyDown("space") && (state!=State.Jumping))
+        if (Input.GetKeyDown("space") && !(anim.GetBool("isJumping") || anim.GetBool("isFalling")))
         {
             isGrounded = false;
             state = State.Jumping;
@@ -167,18 +161,24 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "fallgrube")
         {
             Debug.Log("TOOOOOT!!!");
-            transform.position = spawnPoint.position;
-            GameObject.FindGameObjectWithTag("MainCamera").transform.position = 
-                new Vector3(spawnPoint.position.x + 4.0f, spawnPoint.position.y + 2.0f, spawnPoint.position.z - 10.0f);
+            anim.SetBool("isDead", true);
+            if (isDead)
+                respawnPlayer();
 
         }
         if (other.gameObject.tag == "ground")
         {
             isGrounded = true;
         }
+    }
 
+    void respawnPlayer()
+    {
+        transform.position = spawnPoint.position;
+        transform.rotation = spawnPoint.rotation;//new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
+        GameObject.FindGameObjectWithTag("MainCamera").transform.position =
+            new Vector3(spawnPoint.position.x + 4.0f, spawnPoint.position.y + 2.0f, spawnPoint.position.z - 10.0f);
         
-
     }
 
 }
