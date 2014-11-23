@@ -56,4 +56,9 @@ public class AsteroidScript : MonoBehaviour {
         }
         up = false;
      }
+
+    public void Kill(){
+    	Destroy(this.gameObject);
+    	GameObject.Find("AsteroidSpawner").GetComponent<AsteroidSpawner>().numAsteroids--;
+    }
 }

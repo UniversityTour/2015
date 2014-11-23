@@ -3172,7 +3172,7 @@ GameObject:
   - 114: {fileID: 689536272}
   m_Layer: 0
   m_Name: Done_Enemy Ship
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4835,17 +4835,21 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400000, guid: a79236c05e5258d4f8e8a31d48a439f5, type: 2}
+      propertyPath: lasers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a79236c05e5258d4f8e8a31d48a439f5, type: 2}
       propertyPath: m_LocalPosition.x
       value: -.136040688
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a79236c05e5258d4f8e8a31d48a439f5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.3349762
+      value: -.274096847
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a79236c05e5258d4f8e8a31d48a439f5, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -4.99999905
+      value: -4.99999952
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: a79236c05e5258d4f8e8a31d48a439f5, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4867,6 +4871,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: a79236c05e5258d4f8e8a31d48a439f5, type: 2}
+      propertyPath: lasers.Array.data[1]
+      value: 
+      objectReference: {fileID: 100002, guid: 57137b89e09584e3e839655c51e6f042, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a79236c05e5258d4f8e8a31d48a439f5, type: 2}
   m_RootGameObject: {fileID: 1748749249}
@@ -5282,7 +5290,7 @@ GameObject:
   - 23: {fileID: 1541464227}
   m_Layer: 0
   m_Name: vehicle_enemyShip
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5591,6 +5599,7 @@ GameObject:
   - 54: {fileID: 1748749252}
   - 64: {fileID: 1748749253}
   - 114: {fileID: 1748749254}
+  - 82: {fileID: 1748749255}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -5605,7 +5614,7 @@ Transform:
   m_PrefabInternal: {fileID: 982671564}
   m_GameObject: {fileID: 1748749249}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
-  m_LocalPosition: {x: -.136040688, y: -5.3349762, z: -4.99999905}
+  m_LocalPosition: {x: -.136040688, y: -.274096847, z: -4.99999952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2118906904}
@@ -5675,7 +5684,67 @@ MonoBehaviour:
   speed: 5
   lasers:
   - {fileID: 100000, guid: 3a46a30f113dbab4598b1a3ed829b3f6, type: 2}
+  - {fileID: 100002, guid: 57137b89e09584e3e839655c51e6f042, type: 2}
   explostion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
+  dubstepGun: 1
+--- !u!82 &1748749255
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1748749249}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 11b65c74562f9f743b4083775cd214b0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1846654620
 GameObject:
   m_ObjectHideFlags: 0
