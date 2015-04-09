@@ -1,11 +1,3 @@
-# =============== #
-# Unity generated #
-# =============== #
-Temp/
-Obj/
-UnityGenerated/
-Library/
- 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
@@ -31,7 +23,10 @@ ExportedObj/
 Icon?
 ehthumbs.db
 Thumbs.db
-=======
+
+# =============== #
+# Unity generated #
+# =============== #
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
